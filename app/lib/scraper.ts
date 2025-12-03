@@ -134,7 +134,7 @@ export async function extrairTelefone(
           const matches = modalTexto.match(pattern)
           if (matches && matches.length > 0) {
             telefone = matches[0].replace(/\D/g, '')
-            if (telefone.length >= 10) {
+            if (telefone?.length >= 10) {
               break
             }
           }
@@ -193,6 +193,16 @@ export async function processarCidade(
   const resultados: Modelo[] = []
 
   console.log('🚀 Iniciando navegador Puppeteer...')
+  // const browser = await puppeteer.launch({
+  //   headless: true,
+  //   args: [
+  //     '--no-sandbox',
+  //     '--disable-setuid-sandbox',
+  //     '--disable-blink-features=AutomationControlled',
+  //     '--disable-web-security',
+  //     '--disable-features=IsolateOrigins,site-per-process',
+  //   ],
+  // })
   const browser = await puppeteer.launch({
     headless: true,
     args: [
@@ -201,6 +211,18 @@ export async function processarCidade(
       '--disable-blink-features=AutomationControlled',
       '--disable-web-security',
       '--disable-features=IsolateOrigins,site-per-process',
+      '--disable-dev-shm-usage', // 🆕 Reduz uso de /dev/shm
+      '--disable-gpu', // 🆕 Desabilita GPU
+      '--disable-software-rasterizer', // 🆕 Economia de memória
+      '--disable-extensions', // 🆕 Sem extensões
+      '--disable-background-networking', // 🆕 Reduz processos
+      '--disable-default-apps', // 🆕 Reduz processos
+      '--disable-sync', // 🆕 Reduz processos
+      '--metrics-recording-only', // 🆕 Reduz overhead
+      '--mute-audio', // 🆕 Sem áudio
+      '--no-first-run', // 🆕 Reduz processos
+      '--safebrowsing-disable-auto-update', // 🆕 Reduz requests
+      '--disable-notifications', // 🆕 Sem notificações
     ],
   })
 
