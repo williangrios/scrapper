@@ -121,7 +121,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
-          🔥 FatalModel Scraper
+          Scraper
         </h1>
 
         {/* Formulário */}
@@ -199,7 +199,7 @@ export default function Home() {
             disabled={loading}
             className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
           >
-            {loading ? 'Processando...' : 'Buscar Modelos'}
+            {loading ? 'Processando...' : 'Buscar'}
           </button>
         </form>
 
