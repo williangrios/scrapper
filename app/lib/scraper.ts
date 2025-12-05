@@ -6,7 +6,7 @@ import { Modelo } from './types'
 
 const BASE_URL = 'https://fatalmodel.com'
 const DELAY = 1000 // 1 segundo entre lotes
-const LOTE_SIZE = 5 // Processar 5 modelos por vez
+const LOTE_SIZE = 10 // Processar 5 modelos por vez
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
